@@ -5,6 +5,6 @@
     "start": "node server.mts"
   },
   "engines": {
-    "node": ">=22.18"
+    "node": ">=22.18 <25"
   }
 }
