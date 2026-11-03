@@ -145,7 +145,7 @@ const server = http.createServer(async (req, res) => {
   }
 });
 
-server.listen(PORT, '127.0.0.1', () => {
+server.listen(PORT, '0.0.0.0', () => {
   console.log(`TokDesk: http://127.0.0.1:${PORT}`);
   console.log(`Redirect URI: ${REDIRECT_URI}`);
   if (!configured) console.log('Set TIKTOK_CLIENT_KEY and TIKTOK_CLIENT_SECRET in .env');
