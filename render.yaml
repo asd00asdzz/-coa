@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: tokdesk-asd00asdzz-20261103
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/status
+    envVars:
+      - key: TIKTOK_CLIENT_KEY
+        sync: false
+      - key: TIKTOK_CLIENT_SECRET
+        sync: false
+      - key: TIKTOK_SCOPES
+        value: user.info.basic,user.info.profile,user.info.stats,video.list
