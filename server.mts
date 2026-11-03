@@ -19,7 +19,7 @@ loadEnv();
 const PORT = Number(process.env.PORT || 8765);
 const CLIENT_KEY = process.env.TIKTOK_CLIENT_KEY || '';
 const CLIENT_SECRET = process.env.TIKTOK_CLIENT_SECRET || '';
-const PUBLIC_URL = (process.env.PUBLIC_URL || `http://127.0.0.1:${PORT}`).replace(/\/$/, '');
+const PUBLIC_URL = (process.env.PUBLIC_URL || process.env.RENDER_EXTERNAL_URL || `http://127.0.0.1:${PORT}`).replace(/\/$/, '');
 const REDIRECT_URI = `${PUBLIC_URL}/oauth/callback`;
 const SCOPES = process.env.TIKTOK_SCOPES || 'user.info.basic,user.info.profile,user.info.stats,video.list';
 const configured = Boolean(CLIENT_KEY && CLIENT_SECRET);
@@ -79,8 +79,8 @@ const redirect = (res, location) => {
   res.end();
 };
 
-const mime = { '.html': 'text/html; charset=utf-8', '.png': 'image/png' };
-const publicFiles = new Set(['index.html', 'privacy.html', 'terms.html', 'tokdesk-icon.png']);
+const mime = { '.html': 'text/html; charset=utf-8', '.png': 'image/png', '.txt': 'text/plain; charset=utf-8' };
+const publicFiles = new Set(['index.html', 'privacy.html', 'terms.html', 'tokdesk-icon.png', 'tiktok7fgSASJ9iMth8nIwHTwujWTC33gGSB3E.txt']);
 
 const server = http.createServer(async (req, res) => {
   const url = new URL(req.url, PUBLIC_URL);
