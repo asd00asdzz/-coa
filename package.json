@@ -1,0 +1,10 @@
+{
+  "name": "tokdesk",
+  "private": true,
+  "scripts": {
+    "start": "node server.mts"
+  },
+  "engines": {
+    "node": ">=22.18"
+  }
+}
